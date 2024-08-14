@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import Login from './Login'
 function Navbar() {
   const [sticky,setSticky]=useState(false)
   const [theme, setTheme] = useState(
@@ -60,8 +61,8 @@ return ()=>{
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
         <li><a href="/">Home</a></li>
         <li><a href="/allitems">All Items</a></li>
-        <li><a>About Us</a></li>
-        <li><a>Contact Us</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="contact">Contact Us</a></li>
       </ul>
     </div>
     <a className="text-xl font-bold cursor-pointer text-purple-800 dark:white">SwapSangam</a>
@@ -71,8 +72,8 @@ return ()=>{
     <ul className="menu menu-horizontal px-1">
     <li><a href="/">Home</a></li>
         <li><a href="/allitems">All Items</a></li>
-        <li><a>About Us</a></li>
-        <li><a>Contact Us</a></li>
+        <li><a href="about">About Us</a></li>
+        <li><a href="contact">Contact Us</a></li>
         <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
   <input type="checkbox" className="theme-controller" value="synthwave" />
@@ -125,7 +126,21 @@ return ()=>{
     </ul>
   </div>
   <div>
-    <a className="bg-black text-white p-2 ml-2 rounded-md hover:bg-purple-800 duration-300 ">Login</a>
+    {/* <a className="bg-black text-white p-2 ml-2 rounded-md hover:bg-purple-800 duration-300 ">Login</a> */}
+    {/* <div className=""> */}
+    
+  
+    <a
+      className="bg-black text-white px-3 py-2 rounded-md hover:bg-purple-700 duration-300 cursor-pointer bg-purple-900 ml-2 "
+      onClick={() =>
+        document.getElementById("my_modal_2").showModal()
+      }
+    >
+      Login
+    </a>
+    <Login />
+    
+  {/* </div> */}
   </div>
   </div>
 </div>
