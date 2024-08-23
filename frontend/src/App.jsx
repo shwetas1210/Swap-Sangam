@@ -8,6 +8,7 @@ import Aboutpage from './Aboutus/Aboutpage'
 import Homepage from './Home/Homepage'
 import Signup from './components/Signup';
 import All from './Allitems/All';
+import { Toaster } from 'react-hot-toast';
 function App() {
   return (
     
@@ -19,7 +20,7 @@ function App() {
      <Route path="/about" element={<Contactpage/>}/>
      <Route path="/signup" element={<Signup/>}/>
      </Routes>
-   
+     <Toaster />
      </div>
     
   )
