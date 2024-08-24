@@ -29,9 +29,15 @@ const Cards = ({item}) => {
       <div className="badge badge-secondary bg-purple-800">
         {item.category}
       </div>
+      
+
     </h2>
     <p>{item.title}</p>
+    <p>
+        <span className='text-purple-700 mr-2'>Contact :</span>{item.phone}
+      </p>
     <div className="card-actions justify-between">
+    
       <div className="badge badge-outline hover:bg-purple-800 duration-200-text-white px-2 py-3">Rs {item.price}</div> 
     </div>
   </div>

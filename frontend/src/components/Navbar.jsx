@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Login from './Login'
 import Logout from './Logout'
@@ -6,7 +7,10 @@ import{ useAuth} from '../context/AuthProvider'
 function Navbar() {
   const [authUser,setAuthUser]=useAuth()
   const [sticky,setSticky]=useState(false)
+  const storedUserData = localStorage.getItem('Users')
+  const userData = JSON.parse(storedUserData)
   const [theme, setTheme] = useState(
+    
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
   );
   const element = document.documentElement;
@@ -66,6 +70,7 @@ return ()=>{
         <li><a href="/allitems">All Items</a></li>
         <li><a href="about">About Us</a></li>
         <li><a href="contact">Contact Us</a></li>
+        { authUser?<li><Link to="/addproduct">Add Product</Link></li>:null}
       </ul>
     </div>
     <a className="text-xl font-bold cursor-pointer text-purple-800 dark:white">SwapSangam</a>
@@ -77,6 +82,7 @@ return ()=>{
         <li><a href="/allitems">All Items</a></li>
         <li><a href="about">About Us</a></li>
         <li><a href="contact">Contact Us</a></li>
+        { authUser?<li><Link to="/addproduct">Add Product</Link></li>:null}
         <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
   <input type="checkbox" className="theme-controller" value="synthwave" />
@@ -128,12 +134,12 @@ return ()=>{
      
     </ul>
   </div>
-  <div>
+  <div className='flex'>
     {/* <a className="bg-black text-white p-2 ml-2 rounded-md hover:bg-purple-800 duration-300 ">Login</a> */}
     {/* <div className=""> */}
     
   
-    <a
+    {/* <a
       className="bg-black text-white px-3 py-2 rounded-md hover:bg-purple-700 duration-300 cursor-pointer bg-purple-900 ml-2 "
       onClick={() =>
         document.getElementById("my_modal_2").showModal()
@@ -141,7 +147,28 @@ return ()=>{
     >
       Login
     </a>
-    <Login />
+    <Login /> */}
+    {storedUserData?<span className='text-purple-700 m-3'><Link to ="/profile">{userData.fullname}</Link></span>:null}
+{
+  authUser?<Logout/>:(
+    
+    <div className="">
+    
+  
+                <a
+                  className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer m-2"
+                  onClick={() =>
+                    document.getElementById("my_modal_2").showModal()
+                  }
+                >
+                  Login
+                </a>
+                <Login />
+                
+              </div>
+  )
+}
+
     
   {/* </div> */}
   </div>

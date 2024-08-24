@@ -20,8 +20,12 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    Seller: {
+    seller: {
         type: String,
+        required: true,
+    },
+    phone: {
+        type: Number,
         required: true,
     },
     date: {
@@ -29,5 +33,5 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
 });
-const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model('Product', productSchema);
 export default Product;
