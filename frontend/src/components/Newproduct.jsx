@@ -45,6 +45,8 @@ const AddProduct = ({ authUser }) => {
     }
   };
 
+  //useEffect is a powerful hook that lets you perform side effects,  synchronize a component with an external system.
+
   useEffect(() => {
     const getMyProducts = async () => {
       try {
